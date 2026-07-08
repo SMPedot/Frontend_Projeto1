@@ -11,90 +11,100 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <aside>
-      <h2>logo</h2>
-      <p>575 products</p>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">Catalog</a>
-        <a href="#">Orders</a>
-        <a href="#">Reports</a>
-      </nav>
-      <button>Sign Out</button>
-    </aside>
+    <div class="dashboard">
+      <aside>
+        <h2>Ally</h2>
+        <p>575 products</p>
+        <nav class="menu">
+          <a href="#">Home</a>
+          <a href="#">Catalog</a>
+          <a href="#">Orders</a>
+          <a href="#">Reports</a>
+        </nav>
+        <button class="icon icon-profile">
+          <i class="bi bi-person-circle"></i>
+        </button>
+      </aside>
 
-    <main>
-      <header>
-        <h1>Catalogo</h1>
+      <main>
+        <header>
+          <h1>Catalogo</h1>
 
-        <div>
-          <button><i class="bi bi-search"></i></button>
-          <button><i class="bi bi-list"></i></button>
-          <button><i class="bi bi-circle"></i></button>
-        </div>
-      </header>
-
-      <section class="featured">
-        <article class="layout-catalog best-seller">
-          <img src="imagens/shopping1.webp" alt="" />
-          <div class="info">
-            <h2>The Roger</h2>
-            <span>R$779,00</span>
+          <div>
+            <button class="icon"><i class="bi bi-search"></i></button>
+            <button class="icon"><i class="bi bi-filter"></i></button>
+            <button class="icon">
+              <i class="bi bi-lightning-charge"></i>
+            </button>
           </div>
-          <p>15 units</p>
-        </article>
-        <article class="layout-catalog side-card">
-          <img src="imagens/shopping2.webp" alt="" />
-          <div class="info-column">
-            <h2>Fila Court 90</h2>
-            <p>20 units</p>
-            <span>R$380,00</span>
-          </div>
-        </article>
-        <article class="layout-catalog side-card">
-          <img src="imagens/shopping3.webp" alt="" />
-          <div class="info-column">
-            <h2>Adidas Samba OG</h2>
+        </header>
+
+        <section class="featured">
+          <article class="layout-catalog best-seller">
+            <img src="imagens/newbalance.png" alt="" />
+            <div class="info">
+              <h2>New Balance 204L</h2>
+              <h2>R$779,00</h2>
+            </div>
+            <p>15 units</p>
+          </article>
+          <article class="layout-catalog side-card">
+            <div class="side-img">
+              <img src="imagens/adidas1609ES.png" alt="" />
+            </div>
+            <div class="info-column">
+              <h2>Adidas 1609ES</h2>
+              <p>20 units</p>
+              <span>R$569,99</span>
+            </div>
+          </article>
+          <article class="layout-catalog side-card">
+            <div class="side-img">
+              <img src="imagens/NikeAstrograbber.png" alt="" />
+            </div>
+            <div class="info-column">
+              <h2>Nike Astrograbber</h2>
+              <p>10 units</p>
+              <span>R$949,99</span>
+            </div>
+          </article>
+        </section>
+        <section class="products">
+          <article class="layout-products">
+            <div class="flex-img">
+              <img src="imagens/NikeAirForce1.png" alt="" />
+            </div>
+            <h2>Nike Air Force 1</h2>
+            <p>4 units</p>
+            <span>R$1.139,99</span>
+          </article>
+          <article class="layout-products">
+            <div class="flex-img">
+              <img src="imagens/NikeBaltoroHigh.png" alt="" />
+            </div>
+            <h2>Nike Baltoro High</h2>
+            <p>15 units</p>
+            <span>R$1.234,99</span>
+          </article>
+          <article class="layout-products">
+            <div class="flex-img">
+              <img src="imagens/AirJordan3Retro.png" alt="" />
+            </div>
+            <h2>Air Jordan 3 Retro</h2>
+            <p>12 units</p>
+            <span>R$1.709,99</span>
+          </article>
+          <article class="layout-products">
+            <div class="flex-img">
+              <img src="imagens/PumaV-S1.png" alt="" />
+            </div>
+            <h2>Puma V-S1</h2>
             <p>10 units</p>
-            <span>R$940,00</span>
-          </div>
-        </article>
-      </section>
-      <section class="products">
-        <article class="layout-products">
-          <div class="flex-img">
-            <img src="imagens/shopping4.webp" alt="" />
-          </div>
-          <h2>Adidas & Coca-Cola Samba OG</h2>
-          <p>4 units</p>
-          <span>R$800,00</span>
-        </article>
-        <article class="layout-products">
-          <div class="flex-img">
-            <img src="imagens/shopping5.webp" alt="" />
-          </div>
-          <h2>Adidas Campus</h2>
-          <p>15 units</p>
-          <span>R$450,00</span>
-        </article>
-        <article class="layout-products">
-          <div class="flex-img">
-            <img src="imagens/shopping6.webp" alt="" />
-          </div>
-          <h2>Adidas Gazelle Indoor</h2>
-          <p>12 units</p>
-          <span>R$700,00</span>
-        </article>
-        <article class="layout-products">
-          <div class="flex-img">
-            <img src="imagens/shopping7.webp" alt="" />
-          </div>
-          <h2>Adidas CourtJam</h2>
-          <p>10 units</p>
-          <span>R$700,00</span>
-        </article>
-      </section>
-    </main>
-    <footer></footer>
+            <span>R$949,99</span>
+          </article>
+        </section>
+      </main>
+      <footer></footer>
+    </div>
   </body>
 </html>
