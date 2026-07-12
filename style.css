@@ -1,3 +1,25 @@
+:root {
+  --bg-start: #ffffff; /* era #2a2c33 */
+  --bg-end: #bebec5; /* era #0f1015 — cinza claro */
+  --panel-bg: #16181f;
+  --panel-border: #212228;
+  --text-primary: #ffffff;
+  --text-secondary: #bdbdbd;
+  --card-border: #2b2d34;
+  --icon-color: #ecedee;
+}
+
+[data-theme="light"] {
+  --bg-start: #3a3a3ab9; /* era #ffffff */
+  --bg-end: #000000e5;
+  --panel-bg: #ffffff;
+  --panel-border: #e4e4e8;
+  --text-primary: #16181f;
+  --text-secondary: #6c6d73;
+  --card-border: #c8c8ce;
+  --icon-color: #16181f;
+}
+
 body {
   font-family:
     "Inter",
@@ -11,22 +33,32 @@ body {
   margin: 0;
   padding: 40px;
   min-height: 100vh;
-  background: radial-gradient(circle at top left, #efa1dd, #6869c6 60%);
-  color: white;
+  background: radial-gradient(
+    circle at top left,
+    var(--bg-start),
+    var(--bg-end) 60%
+  );
+  color: var(--text-primary);
+  transition:
+    background 0.3s,
+    color 0.3s; /* 👈 novo, deixa a troca suave */
 }
 
 .dashboard {
   display: flex;
   width: 100%;
   max-width: 1200px;
-  background-color: #16181f;
-  border: 1px solid #212228;
+  background-color: var(--panel-bg);
+  border: 1px solid var(--panel-border);
   border-radius: 24px;
   overflow: hidden;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
 }
 
 .dashboard p {
-  color: #bdbdbd;
+  color: var(--text-secondary);
 }
 
 aside {
@@ -35,7 +67,7 @@ aside {
   flex-direction: column;
   align-items: flex-start;
   padding: 30px 25px;
-  border-right: 1px solid #212228;
+  border-right: 1px solid var(--panel-border);
 }
 
 main {
@@ -89,7 +121,7 @@ header {
 
 .best-seller p {
   margin-top: 8px;
-  color: #bdbdbd;
+  color: var(--text-secondary);
 }
 
 .products {
@@ -109,7 +141,7 @@ header {
   flex-direction: column;
   gap: 6px;
   padding: 15px;
-  border: 1px solid #2b2d34;
+  border: 1px solid var(--card-border);
   border-radius: 15px;
   height: 100%; /* 👈 novo */
   box-sizing: border-box; /* 👈 novo */
@@ -161,7 +193,7 @@ header {
   flex-direction: column;
   gap: 6px;
   padding: 15px;
-  border: 1px solid #2b2d34;
+  border: 1px solid var(--card-border);
   border-radius: 15px;
 }
 
@@ -193,7 +225,7 @@ header {
 }
 
 .icon {
-  color: #ecedee;
+  color: var(--icon-color);
   background: none;
   border: none;
   font-size: 24px;
@@ -208,12 +240,12 @@ header {
   margin-top: 40px;
   text-decoration: none;
   font-size: large;
-  color: #6c6d73;
+  color: var(--text-secondary);
   transition: 0.5s;
 }
 
 .menu a:hover {
-  color: #ecedee;
+  color: var(--text-primary);
   font-size: x-large;
 }
 
@@ -242,7 +274,7 @@ header {
 }
 
 .info-column p {
-  color: #bdbdbd;
+  color: var(--text-secondary);
   font-size: 14px;
 }
 
@@ -251,7 +283,7 @@ header {
 }
 
 h1,
-h2 {
+h3 {
   font-weight: 700;
 }
 
@@ -262,4 +294,125 @@ h2 {
 .icon-profile,
 .menu a {
   font-weight: 500;
+}
+
+/* ===== TABLET / MOBILE (até 768px) ===== */
+@media (max-width: 768px) {
+  body {
+    padding: 16px;
+    align-items: stretch;
+  }
+
+  .dashboard {
+    flex-direction: column;
+    max-width: 100%;
+    border-radius: 16px;
+  }
+
+  aside {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-right: none;
+    border-bottom: 1px solid var(--panel-border); /* era #212228 */
+  }
+
+  aside h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  aside p {
+    display: none; /* "575 products" some no mobile pra economizar espaço */
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: row !important;
+    gap: 16px !important;
+    margin-top: 0 !important;
+  }
+
+  .menu a {
+    font-size: 14px;
+  }
+
+  .icon-profile {
+    margin-top: 0;
+    margin-right: 15px; /* 👈 novo — afasta do canto arredondado */
+    font-size: 22px;
+  }
+
+  main {
+    padding: 20px;
+  }
+
+  header h1 {
+    font-size: 22px;
+  }
+
+  /* Featured: empilha tudo em coluna única */
+  .featured {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    height: auto;
+    gap: 12px;
+  }
+
+  .featured article:first-child {
+    grid-row: auto;
+  }
+
+  .best-seller img {
+    height: 220px; /* era 200px */
+    flex: none;
+  }
+
+  .side-img {
+    width: 50%; /* era 60% — imagem menos "espremida" na largura */
+    height: 130px; /* era 90px — essa é a mudança principal contra o corte */
+  }
+
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .flex-img {
+    height: 150px; /* 👈 novo — sem isso ele fica com o valor padrão de 110px, curto demais pra 2 colunas */
+  }
+}
+
+/* ===== CELULAR PEQUENO (até 480px) ===== */
+@media (max-width: 480px) {
+  aside {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .menu {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .menu a {
+    font-size: 13px;
+  }
+
+  header {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .products {
+    grid-template-columns: 1fr; /* 1 coluna só */
+  }
+
+  .flex-img {
+    height: 140px; /* imagem maior já que tem a linha toda pra ela */
+  }
 }

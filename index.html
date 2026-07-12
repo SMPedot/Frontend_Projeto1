@@ -2,6 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem("theme") || "dark";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shoes Shop</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,7 +25,7 @@
   <body>
     <div class="dashboard">
       <aside>
-        <h3>Ally</h3>
+        <h3>Pedot-shoes</h3>
         <p>575 products</p>
         <nav class="menu">
           <a href="#">Home</a>
@@ -39,8 +45,13 @@
           <div>
             <button class="icon"><i class="bi bi-search"></i></button>
             <button class="icon"><i class="bi bi-filter"></i></button>
-            <button class="icon">
-              <i class="bi bi-lightning-charge"></i>
+            <button class="icon"><i class="bi bi-lightning-charge"></i></button>
+            <button
+              class="icon"
+              id="theme-toggle"
+              aria-label="Alternar tema claro/escuro"
+            >
+              <i class="bi bi-moon-stars" id="theme-icon"></i>
             </button>
           </div>
         </header>
@@ -120,5 +131,6 @@
       </main>
       <footer></footer>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
