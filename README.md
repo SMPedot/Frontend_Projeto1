@@ -1,54 +1,64 @@
-# 🎵 Music Player - Twenty One Pilots
+# 👟 Shoes Shop — Dashboard
 
-Mini-player de música inspirado em interfaces como Spotify/Apple Music, desenvolvido com HTML, CSS e JavaScript puro, como projeto acadêmico de frontend.
+Dashboard de catálogo de produtos para uma loja de tênis, desenvolvido com HTML e CSS puros. O projeto simula um painel administrativo de estoque, com cards de produtos em destaque, grade de catálogo, alternância de tema claro/escuro e containerização via Docker.
 
-## Funcionalidades
+## 🎯 Sobre o projeto
 
-- ▶️ Play / Pause
-- ⏭️ Próxima / ⏮️ Anterior faixa
-- 🔀 Modo aleatório (shuffle)
-- 🔁 Repetir música
-- ❤️ Curtir música (persistido no `localStorage`)
-- 📊 Barra de progresso clicável (permite pular pra qualquer trecho da música)
-- ⏱️ Exibição de tempo atual e duração total
+Interface inspirada em dashboards de e-commerce modernos, com foco em:
 
-## Tecnologias
+- Layout organizado em sidebar + área de conteúdo principal
+- Seção de produtos em destaque (best sellers) com card grande + cards laterais
+- Grade de produtos do catálogo geral
+- Alternância entre tema escuro e claro, com preferência salva no navegador
+- Design responsivo (desktop, tablet e mobile)
 
-- HTML5 semântico
-- CSS3 (custom properties / variáveis CSS)
-- JavaScript (vanilla, sem frameworks)
-- [Bootstrap Icons](https://icons.getbootstrap.com/)
-- Docker + Docker Compose (containerização com Nginx)
+## 🛠️ Tecnologias utilizadas
 
-## Estrutura do projeto
+- **HTML5** — estrutura semântica
+- **CSS3** — Flexbox, Grid, CSS Custom Properties (variáveis) para theming
+- **JavaScript** — alternância de tema com persistência via `localStorage`
+- **Bootstrap Icons** — ícones da interface
+- **Google Fonts (Inter)** — tipografia
+- **Docker + Nginx** — containerização e servidor web para produção
+
+## 📁 Estrutura do projeto
 
 ```
-.
-├── index.html
-├── style.css
-├── script.js
-├── images/          # capas dos álbuns
-├── songs/           # arquivos de áudio (.mp3)
-├── Dockerfile
-├── docker-compose.yml
-└── .dockerignore
+Frontend_Projeto1/
+├── index.html          # Estrutura da página
+├── style.css            # Estilos e temas (claro/escuro)
+├── script.js             # Lógica de alternância de tema
+├── imagens/              # Imagens dos produtos
+│   ├── newbalance.png
+│   ├── adidas1609ES.png
+│   ├── AdidasHandball.png
+│   ├── NikeAirForce1.png
+│   ├── NikeBaltoroHigh.png
+│   ├── AirJordan3.png
+│   └── PumaV-S1.png
+├── Dockerfile            # Imagem Docker baseada em nginx:alpine
+├── compose.yaml          # Orquestração do container
+└── README.md
 ```
 
-## Como rodar
+## ✨ Funcionalidades
 
-### Opção 1: Direto no navegador
+- **Catálogo em destaque**: produto principal (best seller) em card grande, com dois produtos secundários ao lado
+- **Grade de produtos**: catálogo geral em cards com imagem, nome, quantidade em estoque e preço
+- **Tema claro/escuro**: botão no header alterna entre os temas, com a escolha salva no navegador (persiste entre sessões)
+- **Layout responsivo**: sidebar se adapta para navegação horizontal em telas menores; grade de produtos reorganiza de 4 → 2 → 1 colunas conforme o tamanho da tela
 
-Basta abrir o `index.html` no navegador (ou usar uma extensão como o Live Server do VS Code).
+## 🚀 Como rodar o projeto
 
-### Opção 2: Com Docker (recomendado)
+### Opção 1: Docker (recomendado)
 
-Com o Docker Desktop instalado e rodando, na raiz do projeto:
+Com o [Docker Desktop](https://www.docker.com/products/docker-desktop/) instalado e em execução:
 
 ```bash
 docker compose up --build
 ```
 
-Depois acesse:
+Acesse no navegador:
 
 ```
 http://localhost:8080
@@ -60,13 +70,15 @@ Para parar o container:
 docker compose down
 ```
 
-> O `docker-compose.yml` monta a pasta do projeto como volume, então qualquer alteração nos arquivos é refletida automaticamente no navegador, sem precisar rebuildar a imagem.
+### Opção 2: Abrir diretamente no navegador
 
-## Padrões adotados
+Basta abrir o arquivo `index.html` em qualquer navegador — não há dependências de build ou instalação, já que o projeto é HTML/CSS/JS puro.
 
-- **HTML semântico**: uso de `<main>`, `<header>`, `<figure>`, `<section>` e `<footer>` para estruturar o conteúdo de forma significativa.
-- **Separação de responsabilidades**: atributos `id` são usados exclusivamente para seleção via JavaScript; `class` é usada exclusivamente para estilização via CSS.
+## 🐳 Containerização
 
-## Autor
+O projeto utiliza a imagem oficial `nginx:alpine` como servidor web. O `Dockerfile` copia os arquivos estáticos (`index.html`, `style.css`, `script.js`, `imagens/`) para o diretório padrão do nginx (`/usr/share/nginx/html`), e o `compose.yaml` mapeia a porta `8080` do host para a porta `80` do container.
 
-Samuel
+## 📌 Observações
+
+- Projeto acadêmico desenvolvido como exercício de fundamentos de frontend (HTML/CSS) e containerização com Docker.
+- Não possui backend ou persistência de dados de produtos — as informações são estáticas, definidas diretamente no HTML.
