@@ -1,6 +1,6 @@
 :root {
-  --bg-start: #ffffff; /* era #2a2c33 */
-  --bg-end: #bebec5; /* era #0f1015 — cinza claro */
+  --bg-start: #ffffff;
+  --bg-end: #bebec5;
   --panel-bg: #16181f;
   --panel-border: #212228;
   --text-primary: #ffffff;
@@ -10,7 +10,7 @@
 }
 
 [data-theme="light"] {
-  --bg-start: #3a3a3ab9; /* era #ffffff */
+  --bg-start: #3a3a3ab9;
   --bg-end: #000000e5;
   --panel-bg: #ffffff;
   --panel-border: #e4e4e8;
@@ -41,7 +41,7 @@ body {
   color: var(--text-primary);
   transition:
     background 0.3s,
-    color 0.3s; /* 👈 novo, deixa a troca suave */
+    color 0.3s;
 }
 
 .dashboard {
@@ -72,7 +72,7 @@ aside {
 
 main {
   flex: 1;
-  padding: 32px 40px; /* era 40px 50px */
+  padding: 32px 40px;
 }
 
 header {
@@ -102,8 +102,8 @@ header {
   flex: 1;
   min-height: 0;
   width: 100%;
-  object-fit: cover; /* era contain */
-  padding: 0; /* remova o padding, já que agora a imagem preenche tudo */
+  object-fit: cover;
+  padding: 0;
   box-sizing: border-box;
   margin-bottom: 5px;
 }
@@ -128,7 +128,7 @@ header {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  margin-top: 24px; /* 👈 novo */
+  margin-top: 24px;
 }
 
 .layout-catalog img {
@@ -143,21 +143,21 @@ header {
   padding: 15px;
   border: 1px solid var(--card-border);
   border-radius: 15px;
-  height: 100%; /* 👈 novo */
-  box-sizing: border-box; /* 👈 novo */
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .side-card {
   display: flex;
   flex-direction: row;
-  align-items: stretch; /* garante que a caixa preencha 100% da altura do card */
+  align-items: stretch;
   gap: 12px;
   height: 100%;
   box-sizing: border-box;
 }
 
 .side-img {
-  width: 60%; /* era 45% */
+  width: 60%;
   height: 145px;
   align-self: stretch;
   display: flex;
@@ -171,7 +171,7 @@ header {
 .side-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* deixa a imagem preencher mais, cortando a margem branca do PNG */
+  object-fit: cover;
 }
 
 .info-column {
@@ -209,7 +209,7 @@ header {
 
 .flex-img {
   display: flex;
-  height: 110px; /* era 140px */
+  height: 110px;
   justify-content: center;
   align-items: center;
   border-radius: 12px;
@@ -219,7 +219,7 @@ header {
 .flex-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* era contain */
+  object-fit: cover;
   border-radius: 12px;
   margin-bottom: 5px;
 }
@@ -296,7 +296,6 @@ h3 {
   font-weight: 500;
 }
 
-/* ===== TABLET / MOBILE (até 768px) ===== */
 @media (max-width: 768px) {
   body {
     padding: 16px;
@@ -316,7 +315,7 @@ h3 {
     justify-content: space-between;
     padding: 16px 20px;
     border-right: none;
-    border-bottom: 1px solid var(--panel-border); /* era #212228 */
+    border-bottom: 1px solid var(--panel-border);
   }
 
   aside h3 {
@@ -325,7 +324,7 @@ h3 {
   }
 
   aside p {
-    display: none; /* "575 products" some no mobile pra economizar espaço */
+    display: none;
   }
 
   .menu {
@@ -341,7 +340,7 @@ h3 {
 
   .icon-profile {
     margin-top: 0;
-    margin-right: 15px; /* 👈 novo — afasta do canto arredondado */
+    margin-right: 15px;
     font-size: 22px;
   }
 
@@ -353,7 +352,6 @@ h3 {
     font-size: 22px;
   }
 
-  /* Featured: empilha tudo em coluna única */
   .featured {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -366,13 +364,13 @@ h3 {
   }
 
   .best-seller img {
-    height: 220px; /* era 200px */
+    height: 220px;
     flex: none;
   }
 
   .side-img {
-    width: 50%; /* era 60% — imagem menos "espremida" na largura */
-    height: 130px; /* era 90px — essa é a mudança principal contra o corte */
+    width: 50%;
+    height: 130px;
   }
 
   .products {
@@ -382,11 +380,10 @@ h3 {
   }
 
   .flex-img {
-    height: 150px; /* 👈 novo — sem isso ele fica com o valor padrão de 110px, curto demais pra 2 colunas */
+    height: 150px;
   }
 }
 
-/* ===== CELULAR PEQUENO (até 480px) ===== */
 @media (max-width: 480px) {
   aside {
     flex-wrap: wrap;
@@ -409,10 +406,10 @@ h3 {
   }
 
   .products {
-    grid-template-columns: 1fr; /* 1 coluna só */
+    grid-template-columns: 1fr;
   }
 
   .flex-img {
-    height: 140px; /* imagem maior já que tem a linha toda pra ela */
+    height: 140px;
   }
 }
